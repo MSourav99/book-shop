@@ -1,1 +1,2 @@
-echo "normal script"
+echo "START $(date +%s)"
+sleep 240
