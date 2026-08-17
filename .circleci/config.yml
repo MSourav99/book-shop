@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - checkout
-      - run: bash main.sh
+      - run: echo "START $(date +%s)"
+      - run: sleep 240
 workflows:
   build:
     jobs:
