@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  sleeper:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: echo "START $(date +%s)"
+      - run: sleep 240
+workflows:
+  build:
+    jobs:
+      - sleeper
