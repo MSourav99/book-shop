@@ -5,8 +5,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: echo "START $(date +%s)"
-      - run: sleep 240
+      - run: bash main.sh
 workflows:
   build:
     jobs:
