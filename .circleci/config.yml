@@ -10,7 +10,7 @@ jobs:
           echo "JOB_ID=$JOB_ID"
           echo "START=$(date +%s)"
           if [ "$JOB_ID" -le 29 ]; then
-            sleep 600
+            for n in $(seq 1 20); do echo "tick $n"; sleep 30; done
           else
             sleep 60
           fi
