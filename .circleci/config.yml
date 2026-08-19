@@ -1,12 +1,21 @@
 version: 2.1
 jobs:
-  sleeper:
+  runjob:
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: bash main.sh
+      - run: |
+          JOB_ID=$(cat job_id.txt)
+          echo "JOB_ID=$JOB_ID"
+          echo "START=$(date +%s)"
+          if [ "$JOB_ID" -le 29 ]; then
+            sleep 600
+          else
+            sleep 60
+          fi
+          echo "END=$(date +%s)"
 workflows:
   build:
     jobs:
-      - sleeper
+      - runjob
